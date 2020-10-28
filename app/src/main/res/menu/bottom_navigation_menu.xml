@@ -20,12 +20,4 @@
         android:enabled="true"
         android:icon="@drawable/ic_action_account"
         android:title="@string/text_label_btmnav_account" />
-
-
-
-
-
-
-
-
 </menu>

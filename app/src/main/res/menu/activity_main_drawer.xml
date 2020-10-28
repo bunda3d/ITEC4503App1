@@ -16,5 +16,22 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+
+        <item
+            android:id="@+id/games"
+            android:icon="@drawable/ic_action_games"
+            android:title="@string/text_label_btmnav_games"/>
+        <item
+            android:id="@+id/shop"
+            android:icon="@drawable/ic_action_cart"
+            android:title="@string/text_label_btmnav_shop"/>
+        <item
+            android:id="@+id/info"
+            android:icon="@drawable/ic_action_info"
+            android:title="@string/text_label_btmnav_info"/>
+        <item
+            android:id="@+id/account"
+            android:icon="@drawable/ic_action_account"
+            android:title="@string/text_label_btmnav_account" />
     </group>
 </menu>
