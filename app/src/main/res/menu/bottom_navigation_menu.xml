@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/games"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_games"
+        android:title="@string/text_label_btmnav_games"/>
+    <item
+        android:id="@+id/shop"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_cart"
+        android:title="@string/text_label_btmnav_shop"/>
+    <item
+        android:id="@+id/info"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_info"
+        android:title="@string/text_label_btmnav_info"/>
+    <item
+        android:id="@+id/account"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_account"
+        android:title="@string/text_label_btmnav_account"/>
+</menu>

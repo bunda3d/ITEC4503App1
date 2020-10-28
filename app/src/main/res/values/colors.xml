@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="primaryColor">#37474f</color>
+    <color name="primaryLightColor">#62727b</color>
+    <color name="primaryDarkColor">#102027</color>
+    <color name="secondaryColor">#ea80fc</color>
+    <color name="secondaryLightColor">#ffb2ff</color>
+    <color name="secondaryDarkColor">#b64fc8</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
+</resources>
+
+
+
+
+
+
+<!-- Original Colors -->
+<!--
 <resources>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -8,3 +27,4 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
+-->
