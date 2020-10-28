@@ -22,4 +22,28 @@
         android:name="com.krisbunda.gamesmart.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_games"
+        android:name="com.krisbunda.gamesmart.ui.games.GamesFragment"
+        android:label="@string/menu_games"
+        tools:layout="@layout/fragment_games" />
+
+    <fragment
+        android:id="@+id/nav_shop"
+        android:name="com.krisbunda.gamesmart.ui.shop.ShopFragment"
+        android:label="@string/menu_shop"
+        tools:layout="@layout/fragment_shop" />
+
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.krisbunda.gamesmart.ui.info.InfoFragment"
+        android:label="@string/menu_info"
+        tools:layout="@layout/fragment_info" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.krisbunda.gamesmart.ui.account.AccountFragment"
+        android:label="@string/menu_account"
+        tools:layout="@layout/fragment_account" />
 </navigation>
