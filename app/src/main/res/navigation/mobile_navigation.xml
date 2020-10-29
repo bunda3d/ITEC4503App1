@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.krisbunda.gamesmart.ui.gallery.GalleryFragment"
+        android:name="com.krisbunda.gamesmart.ui.gallery.GamesFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/nav_shop"
-        android:name="com.krisbunda.gamesmart.ui.shop.ShopFragment"
+        android:name="com.krisbunda.gamesmart.ui.shop.InfoFragment"
         android:label="@string/menu_shop"
         tools:layout="@layout/fragment_shop" />
 

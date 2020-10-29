@@ -1,4 +1,4 @@
-package com.krisbunda.gamesmart.ui.shop
+package com.krisbunda.gamesmart.ui.info
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.krisbunda.gamesmart.R
 
-class ShopFragment : Fragment() {
+class InfoFragment : Fragment() {
 
-    private lateinit var shopViewModel : ShopViewModel
+    private lateinit var infoViewModel : InfoViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        shopViewModel =
-            ViewModelProvider(this).get(ShopViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_shop, container, false)
-        val textView: TextView = root.findViewById(R.id.text_shop)
-        shopViewModel.text.observe(viewLifecycleOwner, Observer {
+        infoViewModel =
+            ViewModelProvider(this).get(InfoViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_info, container, false)
+        val textView: TextView = root.findViewById(R.id.text_info)
+        infoViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
