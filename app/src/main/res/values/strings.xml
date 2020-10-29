@@ -19,5 +19,7 @@
     <string name="text_label_btmnav_info">Info</string>
     <string name="text_label_btmnav_shop">Shop</string>
     <string name="text_label_btmnav_games">Games</string>
+    <string name="shr_card_home_cta_title">Check Out Our Store</string>
+    <string name="shr_card_home_cta_desc">Learn while playing,  Earn points for buying useful items and streams!</string>
 
 </resources>
