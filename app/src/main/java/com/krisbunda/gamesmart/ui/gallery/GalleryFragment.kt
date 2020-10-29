@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.krisbunda.gamesmart.R
+import com.krisbunda.gamesmart.R.id.text_gallery
 
 class GalleryFragment : Fragment() {
 
@@ -22,7 +23,7 @@ class GalleryFragment : Fragment() {
         galleryViewModel =
                 ViewModelProvider(this).get(GalleryViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
+        val textView: TextView = root.findViewById(text_gallery)
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

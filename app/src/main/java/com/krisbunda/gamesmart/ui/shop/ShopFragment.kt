@@ -9,12 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.krisbunda.gamesmart.R
+import com.krisbunda.gamesmart.R.id.text_shop
 
 import com.krisbunda.gamesmart.ui.shop.ShopViewModel
 
 class ShopFragment : Fragment() {
 
-    private lateinit var shopViewModel: ShopViewModel
+    private lateinit var shopViewModel : ShopViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
