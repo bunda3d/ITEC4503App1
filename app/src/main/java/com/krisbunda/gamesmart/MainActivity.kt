@@ -73,11 +73,13 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
     }
-    /*override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
+    // back button will close open drawer before closing app
+    override fun onBackPressed() {
+        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
-    }*/
+    }
 }
