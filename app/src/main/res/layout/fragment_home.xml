@@ -31,9 +31,9 @@
                 android:layout_width="130dp"
                 android:layout_height="120dp"
                 android:layout_gravity="start"
-                android:src="@drawable/_img_maker_kit"
+                android:adjustViewBounds="true"
                 android:scaleType="fitStart"
-                android:adjustViewBounds="true"/>
+                android:src="@drawable/_img_maker_kit" />
 
             <TextView
                 android:id="@+id/shr_card_home_cta_title"
