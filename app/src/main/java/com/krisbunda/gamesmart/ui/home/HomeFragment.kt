@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
         homeViewModel =
                 ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.shr_card_home_cta_title)
+        val textView: TextView = root.findViewById(R.id.card_home_cta_link)
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

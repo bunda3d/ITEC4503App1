@@ -22,6 +22,84 @@
     <style name="Theme.ITEC4503App1.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ITEC4503App1.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+<!--
+
+
+    <?xml version="1.0" encoding="utf-8"?>
+    &lt;!&ndash;
+    ~ Copyright (C) 2019 The Android Open Source Project
+    ~ https://github.com/material-components/material-components-android-examples/blob/develop/MaterialThemeBuilder/app/src/main/res/values/themes.xml
+    &ndash;&gt;
+    <resources xmlns:tools="http://schemas.android.com/tools">
+        &lt;!&ndash;Top level DayNight theme to be used in AndroidManifest.xml&ndash;&gt;
+        <style name="Theme.MyApp" parent="Base.Theme.MyApp"/>
+        &lt;!&ndash;Base custom theme which will be shared between both light and dark theme variants&ndash;&gt;
+        <style name="Base.Theme.MyApp" parent="Base.Theme.MaterialThemeBuilder">
+            &lt;!&ndash;Material color attributes (light theme) &ndash;&gt;
+            &lt;!&ndash;colorPrimary colors map to components and elements, such as app bars and buttons. &ndash;&gt;
+            &lt;!&ndash;colorSecondary colors are most often used as accents on components, such as FABs and &ndash;&gt;
+            &lt;!&ndash;selection controls.&ndash;&gt;
+            <item name="colorPrimary">@color/purple_500</item>
+            <item name="colorPrimaryVariant">@color/purple_700</item>
+            <item name="colorSecondary">@color/green_200</item>
+            <item name="colorSecondaryVariant">@color/green_500</item>
+            &lt;!&ndash;colorBackground appears behind scrollable content and is used for the default window&ndash;&gt;
+            &lt;!&ndash;background. colorSurface is mapped to the surface of components such as cards, sheets&ndash;&gt;
+            &lt;!&ndash;and menus. colorError is used to indicate an error state for components such as&ndash;&gt;
+            &lt;!&ndash;text fields.&ndash;&gt;
+            <item name="android:colorBackground">@color/white_50</item>
+            <item name="colorSurface">@color/white_50</item>
+            <item name="colorError">@color/red_600</item>
+            &lt;!&ndash;"On" colors define how text, icons and strokes are colored in relation to the surface&ndash;&gt;
+            &lt;!&ndash;on which they appear.&ndash;&gt;
+            <item name="colorOnPrimary">@color/white_50</item>
+            <item name="colorOnSecondary">@color/black_900</item>
+            <item name="colorOnBackground">@color/black_900</item>
+            <item name="colorOnSurface">@color/black_900</item>
+            <item name="colorOnError">@color/white_50</item>
+            &lt;!&ndash;Material type attributes&ndash;&gt;
+            <item name="textAppearanceHeadline1">@style/TextAppearance.MyTheme.Headline1</item>
+            <item name="textAppearanceHeadline2">@style/TextAppearance.MyTheme.Headline2</item>
+            <item name="textAppearanceHeadline3">@style/TextAppearance.MyTheme.Headline3</item>
+            <item name="textAppearanceHeadline4">@style/TextAppearance.MyTheme.Headline4</item>
+            <item name="textAppearanceHeadline5">@style/TextAppearance.MyTheme.Headline5</item>
+            <item name="textAppearanceHeadline6">@style/TextAppearance.MyTheme.Headline6</item>
+            <item name="textAppearanceSubtitle1">@style/TextAppearance.MyTheme.Subtitle1</item>
+            <item name="textAppearanceSubtitle2">@style/TextAppearance.MyTheme.Subtitle2</item>
+            <item name="textAppearanceBody1">@style/TextAppearance.MyTheme.Body1</item>
+            <item name="textAppearanceBody2">@style/TextAppearance.MyTheme.Body2</item>
+            <item name="textAppearanceButton">@style/TextAppearance.MyTheme.Button</item>
+            <item name="textAppearanceCaption">@style/TextAppearance.MyTheme.Caption</item>
+            <item name="textAppearanceOverline">@style/TextAppearance.MyTheme.Overline</item>
+            &lt;!&ndash;Material shape attributes&ndash;&gt;
+            <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyTheme.SmallComponent</item>
+            <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MyTheme.MediumComponent</item>
+            <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MyTheme.LargeComponent</item>
+            &lt;!&ndash;Component styles&ndash;&gt;
+            <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item>
+            <item name="bottomSheetDialogTheme">@style/ThemeOverlay.MyTheme.BottomSheetDialog</item>
+            <item name="navigationViewStyle">@style/Widget.MyTheme.NavigationView</item>
+            <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
+        </style>
+        <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+            <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorSurface</item>
+            <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+            <item name="android:navigationBarColor" tools:ignore="NewApi">?android:attr/colorBackground</item>
+            <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+            <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?attr/colorControlHighlight</item>
+        </style>
+
+
+-->
+
+
+
+
+
+
+
 </resources>
 
 

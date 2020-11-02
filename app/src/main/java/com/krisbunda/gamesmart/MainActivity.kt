@@ -1,8 +1,10 @@
 package com.krisbunda.gamesmart
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.view.WindowManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -26,8 +28,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // get rid of status bar at top of screen
+        // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        /*// Remember that you should never show the action bar if the
+        // status bar is hidden, so hide that too if necessary.*/
+        actionBar?.hide()
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
