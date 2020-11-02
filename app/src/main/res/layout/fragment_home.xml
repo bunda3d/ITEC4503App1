@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/ic_rect_gradient_blk_purp"
     android:orientation="vertical"
     android:saveEnabled="false"
     tools:context=".ui.home.HomeFragment">
@@ -65,18 +64,18 @@
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="@color/primaryTextColor" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <Button
                 android:id="@+id/card_home_cta_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/card_home_cta_desc"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:textAlignment="textEnd"
                 android:gravity="end"
-                android:text="To Store"
-                android:layout_marginRight="@dimen/fab_margin"
-                android:textColor="@color/secondaryColor"/>
+                android:text="Go To Store"
+                android:textColor="@color/secondaryColor"
+                >
+            </Button>
 
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>

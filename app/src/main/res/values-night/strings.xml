@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="card_home_cta_heading">Check Out Our Store</string>
+    <string name="menu_mapexplore">Map Explorer</string>
+    <string name="menu_map_explorer">Map Explorer</string>
 </resources>

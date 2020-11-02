@@ -18,6 +18,11 @@
             android:title="@string/menu_slideshow" />
 
         <item
+            android:id="@+id/map"
+            android:icon="@drawable/ic_action_explore"
+            android:title="@string/menu_map_explorer" />
+
+        <item
             android:id="@+id/nav_games"
             android:icon="@drawable/ic_action_games"
             android:title="@string/text_label_btmnav_games"/>
