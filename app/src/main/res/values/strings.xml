@@ -22,11 +22,6 @@
     <string name="delete_card_home_cta_title">Check Out Our Store</string>
     <string name="card_home_cta_desc">Learn while playing, Earn points for buying useful items and streams!</string>
     <string name="card_home_cta_heading">Check Out Our Store</string>
-
     <string name="section_label_home">Home</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="menu_mapexplore">Map Explorer</string>
-    <string name="menu_map_explorer">Map Explorer</string>
-
 
 </resources>
