@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
 
+    // changes CTA button text
     private val _text = MutableLiveData<String>().apply {
         value = "Go Shop"
     }

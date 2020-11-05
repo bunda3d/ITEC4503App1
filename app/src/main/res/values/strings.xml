@@ -23,5 +23,7 @@
     <string name="card_home_cta_desc">Learn while playing, Earn points for buying useful items and streams!</string>
     <string name="card_home_cta_heading">Check Out Our Store</string>
     <string name="section_label_home">Home</string>
+    <string name="text_label_btmnav_home">Home</string>
+    <string name="go_to_store">Go To Store</string>
 
 </resources>

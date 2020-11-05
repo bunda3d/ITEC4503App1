@@ -71,8 +71,9 @@
                 android:layout_below="@+id/card_home_cta_desc"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:gravity="end"
-                android:text="Go To Store"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/go_to_store"
                 android:textColor="@color/secondaryColor"
                 >
             </Button>
