@@ -8,16 +8,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.krisbunda.gamesmart.ProductsAdapter.ViewHolder
 import com.krisbunda.gamesmart.model.Product
+import com.squareup.picasso.Picasso
+
 
 //pass Products Adapter from CartActivity
-class ProductsAdapter(private val products: ArrayList<Product>) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
+class ProductsAdapter(private val products: ArrayList<Product>) : RecyclerView.Adapter<ViewHolder>() {
 
-    //title holder
-    override fun onBindViewHolder(holder: ProductsAdapter.ViewHolder, position: Int) {
+    //bind objects to product row layout
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        Picasso.get().load(products[position].photoUrl).into(holder.image)
         holder.title.text = products[position].title
     }
 
-    //photo holder
+    //get product row layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_row, parent, false)
         return ViewHolder(view)
