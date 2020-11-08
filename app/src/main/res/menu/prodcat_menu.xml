@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CartActivity"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navcat_home"
+            android:icon="@drawable/ic_action_cart"
+            android:orderInCategory="100"
+            android:title="Filter Home"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/navcat_art_supplies"
+            android:icon="@drawable/ic_action_artsupplies"
+            android:orderInCategory="100"
+            android:title="Art Supplies"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/navcat_maker_kits"
+            android:icon="@drawable/ic_action_makerkits"
+            android:orderInCategory="100"
+            android:title="Maker Kits"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/navcat_puzzles"
+            android:icon="@drawable/ic_action_puzzles"
+            android:orderInCategory="100"
+            android:title="Puzzles"
+            app:showAsAction="never"/>
+    </group>
+</menu>
+
+<!--
+
+         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_logo_sq_mono_full"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/ic_action_cart"
+            android:title="@string/text_label_btmnav_shop"/>
+
+ -->
