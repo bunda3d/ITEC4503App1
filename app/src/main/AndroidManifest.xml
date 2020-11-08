@@ -21,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ProductDetails"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -37,7 +38,8 @@
             android:name="com.krisbunda.gamesmart.ForegroundOnlyLocationService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="location" />
+            android:foregroundServiceType="location"
+            />
     </application>
 
 </manifest>

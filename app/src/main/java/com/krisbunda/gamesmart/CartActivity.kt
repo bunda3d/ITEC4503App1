@@ -16,12 +16,18 @@ class CartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cart)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        //initialize the array of product data
         val products = arrayListOf<Product>()
 
-        for (i in 0..100) {
-            products.add(Product("Rubik's Cube Puzzle","https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart", 12.00))
+        //100 products
+        for (i in 1..100) {
+            products.add(Product(
+                "Rubik's Cube Puzzle #$i",
+                "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
+                12.00,
+                1200
+            ))
         }
-
         recycler_view.apply {
             layoutManager = LinearLayoutManager(this@CartActivity)
             adapter = ProductsAdapter(products)
