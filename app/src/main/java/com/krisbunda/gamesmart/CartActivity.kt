@@ -8,10 +8,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.krisbunda.gamesmart.model.ArtSuppliesFragment
-import com.krisbunda.gamesmart.model.MakerKitsFragment
-import com.krisbunda.gamesmart.model.Product
-import com.krisbunda.gamesmart.model.PuzzlesFragment
+import com.krisbunda.gamesmart.model.*
 import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,9 +21,19 @@ class CartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cart)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.navcat_host_fragment, ShopFragment()).commit()
+
         nav_view_cart.setNavigationItemSelectedListener {
             when (it.itemId){
+                /*R.id.nav_home -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.layout.activity_cart, MainActivity()).commit()
+                    d("catnav", "nav_home was pressed")
+                }*/
                 R.id.navcat_home -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.navcat_host_fragment, ShopFragment()).commit()
                     d("catnav", "navcat_home was pressed")
                 }
                 R.id.navcat_art_supplies -> {
