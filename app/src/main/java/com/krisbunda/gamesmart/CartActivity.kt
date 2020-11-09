@@ -3,20 +3,14 @@ package com.krisbunda.gamesmart
 import android.os.Bundle
 import android.util.Log.d
 import android.view.MenuItem
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.krisbunda.gamesmart.database.AppDatabase
-import com.krisbunda.gamesmart.database.ProductDb
+import com.krisbunda.gamesmart.database.ProductData
 import com.krisbunda.gamesmart.model.*
 import kotlinx.android.synthetic.main.activity_cart.*
-import kotlinx.android.synthetic.main.activity_main.*
 
-import kotlinx.android.synthetic.main.content_cart.*
-import kotlinx.android.synthetic.main.fragment_shop.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -29,13 +23,13 @@ class CartActivity : AppCompatActivity() {
 
         doAsync {
 
-            val db = Room.databaseBuilder(
+            var db: AppDatabase = Room.databaseBuilder(
                 applicationContext,
                 AppDatabase::class.java, "database-name"
             ).build()
 
-            db.productDao().insertAll(ProductDb(null, "Build a NES Kit", 65.00))
-            val products = db.productDao().getAll()
+            db.productDao().insertAll(ProductData(null, "Build a NES Kit", 65.00))
+            var products = db.productDao().getAll()
 
             uiThread {
                 d("dbtest", "products size? ${products.size}")

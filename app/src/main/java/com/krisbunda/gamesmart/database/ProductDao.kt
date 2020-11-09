@@ -7,12 +7,12 @@ import androidx.room.Query
 
 @Dao
 interface ProductDao {
-    @Query("SELECT * FROM productdb")
-    fun getAll(): List<ProductDb>
+    @Query("SELECT * FROM productdata")
+    fun getAll(): List<ProductData>
 
     @Insert
-    fun insertAll(vararg products: ProductDb)
+    fun insertAll(vararg products: ProductData)
 
     @Delete
-    fun delete(products: ProductDb)
+    fun delete(products: ProductData)
 }
