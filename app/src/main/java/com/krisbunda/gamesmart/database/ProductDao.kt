@@ -11,7 +11,7 @@ interface ProductDao {
     fun getAll(): List<ProductData>
 
     @Insert
-    fun insertAll(vararg products: ProductData)
+    fun insertAll(vararg produc: ProductData)
 
     @Delete
     fun delete(products: ProductData)

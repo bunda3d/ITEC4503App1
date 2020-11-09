@@ -21,21 +21,22 @@ class CartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cart)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        //build database
         doAsync {
 
-            var db: AppDatabase = Room.databaseBuilder(
+            val db: AppDatabase = Room.databaseBuilder(
                 applicationContext,
-                AppDatabase::class.java, "database-name"
+                AppDatabase::class.java, "ProdDataDb"
             ).build()
 
             db.productDao().insertAll(ProductData(null, "Build a NES Kit", 65.00))
-            var products = db.productDao().getAll()
+            val products = db.productDao().getAll()
 
             uiThread {
                 d("dbtest", "products size? ${products.size}")
             }
         }
-
+        //end build database
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.navcat_host_fragment, ShopFragment()).commit()
