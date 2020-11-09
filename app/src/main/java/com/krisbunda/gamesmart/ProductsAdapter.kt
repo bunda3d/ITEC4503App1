@@ -30,9 +30,15 @@ class ProductsAdapter(private val products: List<Product>) : RecyclerView.Adapte
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_row, parent, false)
         val holder = ViewHolder(view)
+        //this makes product row items clickable to product details
         view.setOnClickListener {
             val intent = Intent(parent.context, ProductDetails::class.java)
             intent.putExtra("title",products[holder.adapterPosition].title)
+            intent.putExtra("proddesc",products[holder.adapterPosition].descProd)
+            intent.putExtra("photoaddress",products[holder.adapterPosition].photoUrl)
+            intent.putExtra("pricedol",products[holder.adapterPosition].price.toString())
+            intent.putExtra("pricepts",products[holder.adapterPosition].points.toString())
+
             parent.context.startActivity(intent)
         }
         return holder

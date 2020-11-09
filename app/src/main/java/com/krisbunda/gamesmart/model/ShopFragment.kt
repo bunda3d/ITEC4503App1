@@ -37,6 +37,7 @@ class ShopFragment : Fragment() {
                 root.recycler_view.apply {
                     layoutManager = LinearLayoutManager(activity)
                     adapter = ProductsAdapter(products)
+                    root.progressBar.visibility = View.GONE
                 }
 
             }

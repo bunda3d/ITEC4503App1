@@ -31,23 +31,36 @@
                 android:layout_height="400dp"
                 android:contentDescription="@string/product_image"
                 android:maxHeight="600dp"
-                android:scaleType="fitCenter"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <TextView
                 android:id="@+id/product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_margin="8dp"
+                android:paddingRight="16dp"
+                android:paddingEnd="16dp"
                 android:text="Product Details"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/photo" />
+
+            <TextView
+                android:id="@+id/product_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/product_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/pricebox"
+                android:layout_margin="8dp"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                android:textColor="@color/primaryTextColor"
+                android:gravity="start" />
 
             <Button
                 android:id="@+id/availability"
@@ -58,9 +71,48 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:text="See if it's available"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/product_name" />
+                app:layout_constraintTop_toBottomOf="@+id/product_desc"
+                />
 
-
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pricebox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textAlignment="textStart"
+                android:gravity="start"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/product_desc"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_name"
+                >
+                <TextView
+                    android:id="@+id/price_dol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="textStart"
+                    android:gravity="start"
+                    android:textSize="24sp"
+                    android:textColor="@color/secondaryColor"
+                    />
+                <TextView
+                    android:id="@+id/price_pts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/price_dol"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="textStart"
+                    android:gravity="start"
+                    android:textSize="16sp"
+                    android:textColor="@color/secondaryColor"
+                     />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
