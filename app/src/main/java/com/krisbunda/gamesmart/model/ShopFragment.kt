@@ -1,11 +1,22 @@
 package com.krisbunda.gamesmart.model
 
 import android.os.Bundle
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
+import com.krisbunda.gamesmart.ProductsAdapter
 import com.krisbunda.gamesmart.R
+import kotlinx.android.synthetic.main.fragment_shop.*
+import kotlinx.android.synthetic.main.fragment_shop.view.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import java.net.URL
 
 class ShopFragment : Fragment() {
     override fun onCreateView(
@@ -13,6 +24,48 @@ class ShopFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_shop, container, false)
+
+        val root = inflater.inflate(R.layout.fragment_shop, container, false)
+
+        doAsync {
+            val json = URL("https://next.json-generator.com/api/json/get/4ylHV_btK").readText()
+
+            uiThread {
+                d("threads", "json: $json")
+                val products = Gson().fromJson(json, Array<Product>::class.java).toList()
+
+                root.recycler_view.apply {
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = ProductsAdapter(products)
+                }
+
+            }
+        }
+
+/*        //initialize the array of product data
+        val products = arrayListOf<Product>()
+
+        //100 products
+        for (i in 1..100) {
+            products.add(Product(
+                "Rubik's Cube Puzzle #$i",
+                "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
+                "These classic 3x3 puzzle cubes have surged in popularity since the Netflix documentary.",
+                12.00,
+                1200
+            ))
+        }*/
+/*        root.recycler_view.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = ProductsAdapter(products)
+        }*/
+
+/*        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }*/
+
+        return root
+
     }
 }

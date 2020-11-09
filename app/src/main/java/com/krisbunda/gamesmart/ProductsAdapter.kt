@@ -13,13 +13,14 @@ import com.squareup.picasso.Picasso
 
 
 //pass Products Adapter from CartActivity
-class ProductsAdapter(private val products: ArrayList<Product>) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
+class ProductsAdapter(private val products: List<Product>) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
     //bind objects to product row layout
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products[position]
         Picasso.get().load(product.photoUrl).into(holder.image)
         holder.title.text = product.title
+        holder.descprod.text = product.descProd
         holder.pricedol.text = product.price.toString()
         holder.pricepts.text = product.points.toString()
 
@@ -43,6 +44,7 @@ class ProductsAdapter(private val products: ArrayList<Product>) : RecyclerView.A
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val image: ImageView = itemView.findViewById(R.id.photo)
         val title: TextView = itemView.findViewById(R.id.title)
+        val descprod: TextView = itemView.findViewById(R.id.description)
         val pricedol: TextView = itemView.findViewById(R.id.price)
         val pricepts: TextView = itemView.findViewById(R.id.points)
     }

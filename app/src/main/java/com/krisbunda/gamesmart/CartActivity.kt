@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 import kotlinx.android.synthetic.main.content_cart.*
+import kotlinx.android.synthetic.main.fragment_shop.*
 
 class CartActivity : AppCompatActivity() {
 
@@ -63,27 +64,6 @@ class CartActivity : AppCompatActivity() {
 
         }
 
-        //initialize the array of product data
-        val products = arrayListOf<Product>()
-
-        //100 products
-        for (i in 1..100) {
-            products.add(Product(
-                "Rubik's Cube Puzzle #$i",
-                "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
-                12.00,
-                1200
-            ))
-        }
-        recycler_view.apply {
-            layoutManager = LinearLayoutManager(this@CartActivity)
-            adapter = ProductsAdapter(products)
-        }
-
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
     }
 
     //fix this w/better solution later (store hamburger functionality)
