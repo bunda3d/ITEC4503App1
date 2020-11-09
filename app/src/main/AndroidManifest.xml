@@ -33,14 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Foreground services require type. -->
-        <service
-            android:name="com.krisbunda.gamesmart.ForegroundOnlyLocationService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="location"
-            />
     </application>
 
 </manifest>
