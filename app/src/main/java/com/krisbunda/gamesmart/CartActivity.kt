@@ -22,7 +22,7 @@ class CartActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         //build database
-        doAsync {
+        /*doAsync {
 
             val db: AppDatabase = Room.databaseBuilder(
                 applicationContext,
@@ -33,9 +33,9 @@ class CartActivity : AppCompatActivity() {
             val products = db.productDao().getAll()
 
             uiThread {
-                d("dbtest", "products size? ${products.size}")
+                d("dbtest", "products size? ${products.size} ${products[0].title}")
             }
-        }
+        }*/
         //end build database
 
         supportFragmentManager.beginTransaction()

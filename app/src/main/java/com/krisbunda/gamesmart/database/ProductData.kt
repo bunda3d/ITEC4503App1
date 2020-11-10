@@ -10,5 +10,9 @@ data class ProductData(
 
     @ColumnInfo(name = "prod_title") var title: String?,
 
-    @ColumnInfo(name = "prod_price_dol") var price: Double? = 0.0
+    @ColumnInfo(name = "prod_desc") var descProd: String?,
+
+    @ColumnInfo(name = "prod_price_dol") var price: Double? = 0.0,
+
+    @ColumnInfo(name = "prod_price_pts") var points: Int? = 0
 )
