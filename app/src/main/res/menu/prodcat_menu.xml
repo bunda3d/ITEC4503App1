@@ -34,6 +34,12 @@
             android:orderInCategory="100"
             android:title="Puzzles"
             app:showAsAction="never"/>
+        <item
+            android:id="@+id/navcat_admin"
+            android:icon="@drawable/ic_action_shop_admin"
+            android:orderInCategory="100"
+            android:title="Shop Admin"
+            app:showAsAction="never"/>
     </group>
 </menu>
 

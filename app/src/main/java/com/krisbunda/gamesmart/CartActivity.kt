@@ -28,14 +28,14 @@ class CartActivity : AppCompatActivity() {
                 applicationContext,
                 AppDatabase::class.java, "ProdDataDb"
             ).build()
-
+/*
             db.productDao().insertAll(ProductData(
                     null,
                     "Build a NES Kit",
                     "ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
                     65.00,
                     65000
-            ))
+            ))*/
             val products = db.productDao().getAll()
 
             uiThread {
@@ -73,6 +73,11 @@ class CartActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.navcat_host_fragment, PuzzlesFragment()).commit()
                     d("catnav", "navcat_puzzles was pressed")
+                }
+                R.id.navcat_admin -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.navcat_host_fragment, ShopAdminFragment()).commit()
+                    d("catnav", "navcat_shop_admin was pressed")
                 }
             }
             it.isChecked = true
