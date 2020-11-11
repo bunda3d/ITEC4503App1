@@ -68,7 +68,7 @@ class ShopFragment : Fragment() {
         //build database
         doAsync {
 
-            val db: AppDatabase = Room.databaseBuilder(
+            val db = Room.databaseBuilder(
                 activity!!.applicationContext,
                 AppDatabase::class.java, "ProdDataDb"
             ).build()
@@ -80,7 +80,7 @@ class ShopFragment : Fragment() {
                     it.title,
                     "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
                     it.descProd,
-                    50.00,
+                    56.00,
                     5600
                 )
             }
