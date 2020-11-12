@@ -16,6 +16,7 @@ import com.krisbunda.gamesmart.ProductsAdapter
 import com.krisbunda.gamesmart.R
 import com.krisbunda.gamesmart.database.AppDatabase
 import com.krisbunda.gamesmart.database.ProductData
+import com.krisbunda.gamesmart.repos.ProductsRepository
 import kotlinx.android.synthetic.main.fragment_shop.*
 import kotlinx.android.synthetic.main.fragment_shop.view.*
 import org.jetbrains.anko.doAsync
@@ -55,7 +56,13 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_search.setOnClickListener {
+        ProductsRepository().getAllProducts()?.subscribe({
+            d("dbtest", "success")
+        }, {
+            d("dbtest", "error :( ${it.message}")
+        })
+
+        /* btn_search.setOnClickListener {
 
             doAsync {
 
@@ -87,6 +94,6 @@ class ShopFragment : Fragment() {
                     progressBar.visibility = View.GONE
                 }
             }
-        }
+        } */
     }
 }
