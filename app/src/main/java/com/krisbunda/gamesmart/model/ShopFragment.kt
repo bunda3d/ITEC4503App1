@@ -48,60 +48,44 @@ class ShopFragment : Fragment() {
             }
         }*/
 
-/*        //initialize the array of product data
-        val products = arrayListOf<Product>()
+        return root
 
-        //100 products
-        for (i in 1..100) {
-            products.add(Product(
-                "Rubik's Cube Puzzle #$i",
-                "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
-                "These classic 3x3 puzzle cubes have surged in popularity since the Netflix documentary.",
-                12.00,
-                1200
-            ))
-        }*/
-/*        root.recycler_view.apply {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = ProductsAdapter(products)
-        }*/
-        //build database
-        doAsync {
+    }
 
-            val db = Room.databaseBuilder(
-                activity!!.applicationContext,
-                AppDatabase::class.java, "ProdDataDb"
-            ).build()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-            val productsFromDB = db.productDao().getAll()
+        search_term.setOnClickListener {
 
-            val products = productsFromDB.map {
-                Product(
-                    it.title,
-                    "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
-                    it.descProd,
-                    56.00,
-                    5600
-                )
-            }
+            doAsync {
 
-            uiThread {
-                root.recycler_view.apply {
-                    layoutManager = LinearLayoutManager(activity)
-                    adapter = ProductsAdapter(products)
-                    root.progressBar.visibility = View.GONE
+                val db = Room.databaseBuilder(
+                        activity!!.applicationContext,
+                        AppDatabase::class.java, "ProdDataDb"
+                ).build()
+
+                val productsFromDB = db.productDao().getAll()
+
+                val searchTerm = db.productDao().searchFor("%$search_term%")
+
+                val products = productsFromDB.map {
+                    Product(
+                            it.title,
+                            "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
+                            it.descProd,
+                            56.00,
+                            5600
+                    )
+                }
+
+                uiThread {
+                    recycler_view.apply {
+                        layoutManager = LinearLayoutManager(activity)
+                        adapter = ProductsAdapter(products)
+                    }
+                    progressBar.visibility = View.GONE
                 }
             }
         }
-
-        //root.progressBar.visibility = View.GONE
-
-/*        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }*/
-
-        return root
-
     }
 }

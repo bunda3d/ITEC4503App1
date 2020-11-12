@@ -36,6 +36,7 @@ class CartActivity : AppCompatActivity() {
                     65.00,
                     65000
             ))*/
+
             val products = db.productDao().getAll()
 
             uiThread {
