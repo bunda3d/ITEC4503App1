@@ -1,11 +1,14 @@
 package com.krisbunda.gamesmart
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log.d
+import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.room.Room
+import com.krisbunda.gamesmart.cart.CartStatusActivity
 import com.krisbunda.gamesmart.database.AppDatabase
 import com.krisbunda.gamesmart.database.ProductData
 import com.krisbunda.gamesmart.model.*
@@ -96,9 +99,19 @@ class CartActivity : AppCompatActivity() {
 
     //fix this w/better solution later (store hamburger functionality)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.nav_cart) {
+            startActivity(Intent(this, CartStatusActivity::class.java))
+            return true
+            d("catnav", "nav_cart button pressed")
+        }
         drawer_layout_cart.openDrawer(GravityCompat.START)
         return true
         //return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar, menu)
+        return true
     }
 
 

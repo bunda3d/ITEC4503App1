@@ -55,7 +55,7 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        search_term.setOnClickListener {
+        btn_search.setOnClickListener {
 
             doAsync {
 
@@ -64,11 +64,11 @@ class ShopFragment : Fragment() {
                         AppDatabase::class.java, "ProdDataDb"
                 ).build()
 
-                val productsFromDB = db.productDao().getAll()
+                // val productsFromDB = db.productDao().getAll()
 
-                val searchTerm = db.productDao().searchFor("%$search_term%")
+                val searchTerm = db.productDao().searchFor("%${search_term.text}%")
 
-                val products = productsFromDB.map {
+                val products = searchTerm.map {
                     Product(
                             it.title,
                             "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
@@ -82,6 +82,7 @@ class ShopFragment : Fragment() {
                     recycler_view.apply {
                         layoutManager = LinearLayoutManager(activity)
                         adapter = ProductsAdapter(products)
+
                     }
                     progressBar.visibility = View.GONE
                 }
