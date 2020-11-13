@@ -30,6 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:contentDescription="@string/product_image"
+                android:transitionName="photo_to_animate"
                 android:maxHeight="600dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"

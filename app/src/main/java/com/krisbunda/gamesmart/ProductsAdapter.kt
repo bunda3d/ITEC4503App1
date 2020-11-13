@@ -7,13 +7,22 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.krisbunda.gamesmart.ProductsAdapter.ViewHolder
 import com.krisbunda.gamesmart.model.Product
 import com.squareup.picasso.Picasso
 
 
 //pass Products Adapter from CartActivity
-class ProductsAdapter(private val products: List<Product>) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
+class ProductsAdapter(
+        private val products: List<Product>,
+        private val onClickProduct: (
+                title: String?,
+                descProd: String?,
+                photoUrl: String?,
+                price: Double?,
+                points: Int?,
+                photoView: View
+        ) -> Unit
+        ) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
     //bind objects to product row layout
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -24,26 +33,23 @@ class ProductsAdapter(private val products: List<Product>) : RecyclerView.Adapte
         holder.pricedol.text = product.price.toString()
         holder.pricepts.text = product.points.toString()
 
+        // when user clicks on product, do this:
+        holder.image.setOnClickListener {
+            onClickProduct.invoke(
+                    product.title,
+                    product.descProd,
+                    product.photoUrl,
+                    product.price,
+                    product.points,
+                    holder.image
+            )
+        }
     }
-
     //get product row layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.product_row, parent, false)
-        val holder = ViewHolder(view)
-        //this makes product row items clickable to product details
-        view.setOnClickListener {
-            val intent = Intent(parent.context, ProductDetails::class.java)
-            intent.putExtra("title",products[holder.adapterPosition].title)
-            intent.putExtra("proddesc",products[holder.adapterPosition].descProd)
-            intent.putExtra("photoaddress",products[holder.adapterPosition].photoUrl)
-            intent.putExtra("pricedol",products[holder.adapterPosition].price.toString())
-            intent.putExtra("pricepts",products[holder.adapterPosition].points.toString())
-
-            parent.context.startActivity(intent)
-        }
-        return holder
+        return ViewHolder(view)
     }
-
     //number of products
     override fun getItemCount() = products.size
 

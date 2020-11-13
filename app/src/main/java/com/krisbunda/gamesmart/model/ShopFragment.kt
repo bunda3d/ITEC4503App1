@@ -1,27 +1,24 @@
 package com.krisbunda.gamesmart.model
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Dao
-import androidx.room.Room
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
+import com.krisbunda.gamesmart.ProductDetails
 import com.krisbunda.gamesmart.ProductsAdapter
 import com.krisbunda.gamesmart.R
-import com.krisbunda.gamesmart.database.AppDatabase
-import com.krisbunda.gamesmart.database.ProductData
 import com.krisbunda.gamesmart.repos.ProductsRepository
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_shop.*
 import kotlinx.android.synthetic.main.fragment_shop.view.*
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
-import java.net.URL
+import kotlinx.android.synthetic.main.product_details.*
 
 class ShopFragment : Fragment() {
     override fun onCreateView(
@@ -56,11 +53,38 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ProductsRepository().getAllProducts()?.subscribe({
-            d("dbtest", "success")
-        }, {
-            d("dbtest", "error :( ${it.message}")
-        })
+        ProductsRepository().getAllProducts()
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({
+                    d("dbtest", "success subscribing to ProductsRepository")
+                    recycler_view.apply {
+                        layoutManager = LinearLayoutManager(activity)
+                        adapter = ProductsAdapter(it) {
+                            extraTitle,
+                            extraDescProd,
+                            extraImageUrl,
+                            extraPriceDol,
+                            extraPricePts, photoView
+                            ->
+                            //this makes product row items clickable to product details
+                            val intent = Intent(activity, ProductDetails::class.java)
+                            intent.putExtra("title", extraTitle)
+                            intent.putExtra("proddesc", extraDescProd)
+                            intent.putExtra("photoaddress", extraImageUrl)
+                            intent.putExtra("pricedol", extraPriceDol)
+                            intent.putExtra("pricepts", extraPricePts)
+                            val options = ActivityOptionsCompat
+                                    .makeSceneTransitionAnimation(
+                                    activity as AppCompatActivity, photoView, "photo_to_animate"
+                            )
+                            startActivity(intent, options.toBundle())
+                        }
+                    }
+                    progressBar.visibility = View.GONE
+                }, {
+                    d("dbtest", "error :( ${it.message}")
+                })
 
         /* btn_search.setOnClickListener {
 
