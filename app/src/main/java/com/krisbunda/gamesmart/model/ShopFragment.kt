@@ -70,6 +70,7 @@ class ShopFragment : Fragment() {
                 d("dbtest", "success subscribing to ProductsRepository")
                 recycler_view.apply {
                     layoutManager = LinearLayoutManager(activity)
+
                     adapter = ProductsAdapter(it) {
                             extraTitle,
                             extraDescProd,
@@ -81,7 +82,7 @@ class ShopFragment : Fragment() {
                         val intent = Intent(activity, ProductDetails::class.java)
                         intent.putExtra("title", extraTitle)
                         intent.putExtra("proddesc", extraDescProd)
-                        intent.putExtra("photoaddress", extraImageUrl)
+                        //intent.putExtra("photoaddress", extraImageUrl)
                         intent.putExtra("pricedol", extraPriceDol)
                         intent.putExtra("pricepts", extraPricePts)
                         val options = ActivityOptionsCompat

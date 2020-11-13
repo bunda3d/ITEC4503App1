@@ -19,6 +19,14 @@ class ProductsRepository {
             it.onSuccess(filteredProducts)
         }
     }
+
+    fun getProductByName(name: String): Single<Product> {
+        return Single.create<Product> {
+            val product = fetchProducts().first { it.title == name }
+            it.onSuccess(product)
+        }
+    }
+
     fun fetchProducts(): List<Product> {
         val json = URL("https://gist.githubusercontent.com/bunda3d/a0edc1d8e6073b43fc76d195c9a57302/raw/de2290fa084a94c4b367603ee7f00d4e34e84b66/shop_products.json").readText()
         return Gson().fromJson(json, Array<Product>::class.java).toList()

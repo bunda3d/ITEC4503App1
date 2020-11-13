@@ -4,9 +4,13 @@ import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.krisbunda.gamesmart.repos.ProductsRepository
 import com.squareup.picasso.Picasso
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 import kotlinx.android.synthetic.main.product_details.*
+import kotlin.math.roundToInt
 
 class ProductDetails : AppCompatActivity() {
 
@@ -16,17 +20,20 @@ class ProductDetails : AppCompatActivity() {
 
         val title = intent.getStringExtra("title")
         val productdesc = intent.getStringExtra("proddesc")
-        val photoUrl = intent.getStringExtra("photoaddress")
+        //val photoUrl = intent.getStringExtra("photoaddress")
         val price = intent.getStringExtra("pricedol")
         val points = intent.getStringExtra("pricepts")
 
-
-        product_name.text = title
-        product_desc.text = productdesc
-        Picasso.get().load(photoUrl).into(photo)
-        price_dol.text = price
-        price_pts.text = points
-
+        val product = ProductsRepository().getProductByName(title)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                product_name.text = it.title
+                product_desc.text = "${it.descProd}"
+                Picasso.get().load(it.photoUrl).into(photo)
+                price_dol.text = "$${it.price?.roundToInt()}"
+                price_pts.text = "${it.points}pts"
+            }, {})
 
         availability.setOnClickListener {
             AlertDialog.Builder(this)
