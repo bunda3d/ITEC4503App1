@@ -50,7 +50,7 @@ class ShopAdminFragment : Fragment() {
                 db.productDao().insertAll(ProductData(
                     null,
                     title.toString(),
-                    //"https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
+                    "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
                     //it.photoUrl,
                     "ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
                     65.00,

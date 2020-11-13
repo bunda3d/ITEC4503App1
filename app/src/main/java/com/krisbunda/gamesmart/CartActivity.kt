@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.room.Room
 import com.krisbunda.gamesmart.cart.CartStatusActivity
 import com.krisbunda.gamesmart.database.AppDatabase
+import com.krisbunda.gamesmart.database.CartModel
 import com.krisbunda.gamesmart.database.ProductData
 import com.krisbunda.gamesmart.model.*
 import kotlinx.android.synthetic.main.activity_cart.*
@@ -31,19 +32,39 @@ class CartActivity : AppCompatActivity() {
                 applicationContext,
                 AppDatabase::class.java, "ProdDataDb"
             ).build()
-/*
+
             db.productDao().insertAll(ProductData(
                     null,
                     "Build a NES Kit",
+                    "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
                     "ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
                     65.00,
                     65000
-            ))*/
+            ))
 
             val products = db.productDao().getAll()
 
+            val cart = db.cartDao()
+
+            cart.insertAll(
+                CartModel(
+                null,
+                "Cart Test Product",
+                "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
+                "ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
+                65.00,
+                65000,
+                6
+            ))
+
+            val allCartItems = cart.getAll()
+
             uiThread {
                 d("dbtest", "products size? ${products.size} ${products[0].title}")
+
+                allCartItems.forEach{
+                    d("dbtest", "item in cart: ${it.title}, ${it.price}")
+                }
             }
         }
         //end build database

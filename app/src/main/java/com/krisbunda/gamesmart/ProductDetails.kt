@@ -24,6 +24,10 @@ class ProductDetails : AppCompatActivity() {
         val price = intent.getStringExtra("pricedol")
         val points = intent.getStringExtra("pricepts")
 
+        btn_add_to_cart.setOnClickListener{
+
+        }
+
         val product = ProductsRepository().getProductByName(title)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
