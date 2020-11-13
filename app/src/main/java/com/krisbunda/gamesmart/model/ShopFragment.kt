@@ -15,6 +15,7 @@ import com.krisbunda.gamesmart.ProductsAdapter
 import com.krisbunda.gamesmart.R
 import com.krisbunda.gamesmart.repos.ProductsRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_shop.*
 import kotlinx.android.synthetic.main.fragment_shop.view.*
@@ -53,38 +54,48 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ProductsRepository().getAllProducts()
-                ?.subscribeOn(Schedulers.io())
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribe({
-                    d("dbtest", "success subscribing to ProductsRepository")
-                    recycler_view.apply {
-                        layoutManager = LinearLayoutManager(activity)
-                        adapter = ProductsAdapter(it) {
+        val productsRepository = ProductsRepository().getAllProducts()
+        productsRepository?.let { loadRecyclerView(it) }
+
+        btn_search.setOnClickListener {
+            loadRecyclerView(ProductsRepository().searchForProducts(search_term.text.toString()))
+        }
+    }
+
+    fun loadRecyclerView(productsRepository: Single<List<Product>>) {
+        val single = productsRepository
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribe({
+                d("dbtest", "success subscribing to ProductsRepository")
+                recycler_view.apply {
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = ProductsAdapter(it) {
                             extraTitle,
                             extraDescProd,
                             extraImageUrl,
                             extraPriceDol,
                             extraPricePts, photoView
-                            ->
-                            //this makes product row items clickable to product details
-                            val intent = Intent(activity, ProductDetails::class.java)
-                            intent.putExtra("title", extraTitle)
-                            intent.putExtra("proddesc", extraDescProd)
-                            intent.putExtra("photoaddress", extraImageUrl)
-                            intent.putExtra("pricedol", extraPriceDol)
-                            intent.putExtra("pricepts", extraPricePts)
-                            val options = ActivityOptionsCompat
-                                    .makeSceneTransitionAnimation(
-                                    activity as AppCompatActivity, photoView, "photo_to_animate"
+                        ->
+                        //this makes product row items clickable to product details
+                        val intent = Intent(activity, ProductDetails::class.java)
+                        intent.putExtra("title", extraTitle)
+                        intent.putExtra("proddesc", extraDescProd)
+                        intent.putExtra("photoaddress", extraImageUrl)
+                        intent.putExtra("pricedol", extraPriceDol)
+                        intent.putExtra("pricepts", extraPricePts)
+                        val options = ActivityOptionsCompat
+                            .makeSceneTransitionAnimation(
+                                activity as AppCompatActivity, photoView, "photo_to_animate"
                             )
-                            startActivity(intent, options.toBundle())
-                        }
+                        startActivity(intent, options.toBundle())
                     }
-                    progressBar.visibility = View.GONE
-                }, {
-                    d("dbtest", "error :( ${it.message}")
-                })
+                }
+                progressBar.visibility = View.GONE
+            }, {
+                d("dbtest", "error :( ${it.message}")
+            })
+
 
         /* btn_search.setOnClickListener {
 
