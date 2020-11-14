@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_rect_gradient_blk_purp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -39,6 +40,8 @@
         android:layout_height="wrap_content"
         android:hint="Credit Card"
         android:layout_margin="16dp"
+        android:backgroundTint="@color/primaryTextColor"
+        android:textColorHint="@color/secondaryColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cart_recycler_view"
@@ -50,6 +53,8 @@
         android:layout_height="wrap_content"
         android:hint="Address"
         android:layout_margin="16dp"
+        android:backgroundTint="@color/primaryTextColor"
+        android:textColorHint="@color/secondaryColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_cc_number"
@@ -61,6 +66,8 @@
         android:layout_height="wrap_content"
         android:hint="First Name"
         android:layout_margin="16dp"
+        android:backgroundTint="@color/primaryTextColor"
+        android:textColorHint="@color/secondaryColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/input_pay_namel"
         app:layout_constraintTop_toBottomOf="@+id/input_pay_address"
@@ -72,6 +79,8 @@
         android:layout_height="wrap_content"
         android:hint="Last Name"
         android:layout_margin="16dp"
+        android:backgroundTint="@color/primaryTextColor"
+        android:textColorHint="@color/secondaryColor"
         app:layout_constraintStart_toEndOf="@+id/input_pay_namef"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_pay_address"

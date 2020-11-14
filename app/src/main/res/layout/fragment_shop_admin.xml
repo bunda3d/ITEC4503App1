@@ -10,9 +10,7 @@
         android:id="@+id/textShopAdminPgTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_margin="16dp"
         android:text="Shop Admin Panel"
         android:textColor="@color/secondaryColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -21,31 +19,77 @@
 
     <EditText
         android:id="@+id/inputProdTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_margin="16dp"
         android:ems="10"
         android:hint="Product Title"
-        android:inputType="textPersonName"
+        android:inputType="text"
+        android:backgroundTint="@color/primaryTextColor"
         android:textColor="@color/secondaryColor"
         android:textColorHint="@color/secondaryColor"
         android:textColorHighlight="@color/secondaryDarkColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textShopAdminPgTitle" />
+
+    <EditText
+        android:id="@+id/inputProdDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Product Description"
+        android:inputType="textMultiLine"
+        android:backgroundTint="@color/primaryTextColor"
+        android:textColor="@color/secondaryColor"
+        android:textColorHint="@color/secondaryColor"
+        android:textColorHighlight="@color/secondaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputProdTitle" />
+
+    <EditText
+        android:id="@+id/inputProdPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Product Price"
+        android:inputType="number"
+        android:maxLength="4"
+        android:backgroundTint="@color/primaryTextColor"
+        android:textColor="@color/secondaryColor"
+        android:textColorHint="@color/secondaryColor"
+        android:textColorHighlight="@color/secondaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputProdDesc" />
+
+    <EditText
+        android:id="@+id/inputProdPoints"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Product Points"
+        android:inputType="number"
+        android:maxLength="5"
+        android:backgroundTint="@color/primaryTextColor"
+        android:textColor="@color/secondaryColor"
+        android:textColorHint="@color/secondaryColor"
+        android:textColorHighlight="@color/secondaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputProdPrice" />
 
     <Button
         android:id="@+id/btnProdUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_margin="16dp"
         android:text="Submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputProdTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/inputProdPoints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
