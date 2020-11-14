@@ -1,4 +1,4 @@
-package com.krisbunda.gamesmart.model
+package com.krisbunda.gamesmart.ui.prodcategories
 
 import android.os.Bundle
 import android.view.LayoutInflater

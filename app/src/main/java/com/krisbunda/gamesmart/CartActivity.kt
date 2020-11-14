@@ -10,8 +10,11 @@ import androidx.core.view.GravityCompat
 import androidx.room.Room
 import com.krisbunda.gamesmart.cart.CartStatusActivity
 import com.krisbunda.gamesmart.database.AppDatabase
-import com.krisbunda.gamesmart.database.ProductData
-import com.krisbunda.gamesmart.model.*
+import com.krisbunda.gamesmart.ui.prodcategories.ArtSuppliesFragment
+import com.krisbunda.gamesmart.ui.prodcategories.MakerKitsFragment
+import com.krisbunda.gamesmart.ui.prodcategories.PuzzlesFragment
+import com.krisbunda.gamesmart.ui.shop.ShopFragment
+import com.krisbunda.gamesmart.ui.shopadmin.ShopAdminFragment
 import kotlinx.android.synthetic.main.activity_cart.*
 
 import org.jetbrains.anko.doAsync
@@ -29,9 +32,9 @@ class CartActivity : AppCompatActivity() {
 
             val db: AppDatabase = Room.databaseBuilder(
                 applicationContext,
-                AppDatabase::class.java, "ProdDataDb"
+                AppDatabase::class.java, "ProductData"
             ).build()
-/*
+            /*
             db.productDao().insertAll(ProductData(
                     null,
                     "Build a NES Kit",

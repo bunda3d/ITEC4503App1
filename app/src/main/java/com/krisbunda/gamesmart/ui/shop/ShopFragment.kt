@@ -1,26 +1,19 @@
-package com.krisbunda.gamesmart.model
+package com.krisbunda.gamesmart.ui.shop
 
 import android.os.Bundle
-import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Dao
 import androidx.room.Room
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
 import com.krisbunda.gamesmart.ProductsAdapter
 import com.krisbunda.gamesmart.R
 import com.krisbunda.gamesmart.database.AppDatabase
-import com.krisbunda.gamesmart.database.ProductData
+import com.krisbunda.gamesmart.model.Product
 import kotlinx.android.synthetic.main.fragment_shop.*
-import kotlinx.android.synthetic.main.fragment_shop.view.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
-import java.net.URL
 
 class ShopFragment : Fragment() {
     override fun onCreateView(
@@ -61,7 +54,7 @@ class ShopFragment : Fragment() {
 
                 val db = Room.databaseBuilder(
                         activity!!.applicationContext,
-                        AppDatabase::class.java, "ProdDataDb"
+                        AppDatabase::class.java, "ProductData"
                 ).build()
 
                 // val productsFromDB = db.productDao().getAll()
@@ -71,10 +64,10 @@ class ShopFragment : Fragment() {
                 val products = searchTerm.map {
                     Product(
                             it.title,
-                            "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
+                            it.photoUrl, //"https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
                             it.descProd,
-                            56.00,
-                            5600
+                            it.price,
+                            it.points
                     )
                 }
 

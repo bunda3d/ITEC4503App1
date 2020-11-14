@@ -6,10 +6,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_logo_sq_mono_full"
-            android:title="@string/menu_home" />
+
         <item
             android:id="@+id/navcat_home"
             android:icon="@drawable/ic_action_cart"

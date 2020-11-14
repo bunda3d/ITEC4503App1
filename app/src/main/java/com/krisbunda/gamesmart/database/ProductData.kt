@@ -10,11 +10,12 @@ data class ProductData(
 
     @ColumnInfo(name = "prod_title") var title: String?,
 
-    //@ColumnInfo(name = "prod_photo_url") var photoUrl: String?,
+    @ColumnInfo(name = "prod_photo_url") var photoUrl: String? =
+        "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
 
     @ColumnInfo(name = "prod_desc") var descProd: String?,
 
-    @ColumnInfo(name = "prod_price_dol") var price: Double? = 0.0,
+    @ColumnInfo(name = "prod_price_dol") var price: Double? = 0.00,
 
     @ColumnInfo(name = "prod_price_pts") var points: Int? = 0
 )
