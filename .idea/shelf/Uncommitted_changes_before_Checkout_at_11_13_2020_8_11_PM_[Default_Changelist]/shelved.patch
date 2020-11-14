@@ -1,0 +1,76 @@
+Index: app/src/main/java/com/krisbunda/gamesmart/model/ShopAdminFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.krisbunda.gamesmart.model\r\n\r\nimport android.os.Bundle\r\nimport android.util.Log.d\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport androidx.fragment.app.Fragment\r\nimport androidx.room.Room\r\nimport com.krisbunda.gamesmart.R\r\nimport com.krisbunda.gamesmart.database.AppDatabase\r\nimport com.krisbunda.gamesmart.database.ProductData\r\nimport kotlinx.android.synthetic.main.fragment_shop.*\r\nimport kotlinx.android.synthetic.main.fragment_shop.view.*\r\nimport kotlinx.android.synthetic.main.fragment_shop_admin.*\r\nimport org.jetbrains.anko.doAsync\r\nimport org.jetbrains.anko.uiThread\r\n\r\nclass ShopAdminFragment : Fragment() {\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        return inflater.inflate(\r\n            R.layout.fragment_shop_admin,\r\n            container,\r\n            false\r\n        )\r\n    }\r\n\r\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\r\n        super.onViewCreated(view, savedInstanceState)\r\n\r\n\r\n        btnProdUpdate.setOnClickListener {\r\n            val title = inputProdTitle.text\r\n\r\n            d(\"dbtest\", \"Prod Update btn pressed, with items: $title\")\r\n\r\n            //build db\r\n            doAsync {\r\n\r\n                val db: AppDatabase = Room.databaseBuilder(\r\n                    activity!!.applicationContext,\r\n                    AppDatabase::class.java, \"ProdDataDb\"\r\n                ).build()\r\n\r\n\r\n                db.productDao().insertAll(ProductData(\r\n                    null,\r\n                    title.toString(),\r\n                    \"https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart\",\r\n                    //it.photoUrl,\r\n                    \"ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit\",\r\n                    65.00,\r\n                    65000\r\n                ))\r\n                val products = db.productDao().getAll()\r\n\r\n                uiThread {\r\n                    d(\"dbtest\", \"products size? ${products.size} ${products.last().title}\")\r\n                }\r\n            }\r\n            //end build database\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/krisbunda/gamesmart/model/ShopAdminFragment.kt	(revision fadc81134f73774b44244fe2c1698de029c35f6f)
++++ app/src/main/java/com/krisbunda/gamesmart/model/ShopAdminFragment.kt	(date 1605312859498)
+@@ -35,7 +35,6 @@
+ 
+         btnProdUpdate.setOnClickListener {
+             val title = inputProdTitle.text
+-
+             d("dbtest", "Prod Update btn pressed, with items: $title")
+ 
+             //build db
+@@ -43,7 +42,7 @@
+ 
+                 val db: AppDatabase = Room.databaseBuilder(
+                     activity!!.applicationContext,
+-                    AppDatabase::class.java, "ProdDataDb"
++                    AppDatabase::class.java, "ProdData"
+                 ).build()
+ 
+ 
+Index: app/src/main/java/com/krisbunda/gamesmart/productdetails/ProductDetailsViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.krisbunda.gamesmart.productdetails\r\n\r\nimport androidx.lifecycle.MutableLiveData\r\nimport androidx.lifecycle.ViewModel\r\nimport androidx.lifecycle.viewModelScope\r\nimport com.google.gson.Gson\r\nimport com.krisbunda.gamesmart.model.Product\r\nimport kotlinx.coroutines.Dispatchers\r\nimport kotlinx.coroutines.launch\r\nimport java.net.URL\r\n\r\nclass ProductDetailsViewModel : ViewModel() {\r\n\r\n    val productDetails = MutableLiveData<Product>()\r\n\r\n    fun fetchProductDetails(productTitle: String) {\r\n        viewModelScope.launch(Dispatchers.Default) {\r\n            val json =\r\n                URL(\"https://gist.githubusercontent.com/bunda3d/a0edc1d8e6073b43fc76d195c9a57302/raw/de2290fa084a94c4b367603ee7f00d4e34e84b66/shop_products.json\").readText()\r\n            val list = Gson().fromJson(json, Array<Product>::class.java).toList()\r\n            val product = list.first { it.title == productTitle }\r\n\r\n            productDetails.postValue(product)\r\n        }\r\n\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/krisbunda/gamesmart/productdetails/ProductDetailsViewModel.kt	(revision fadc81134f73774b44244fe2c1698de029c35f6f)
++++ app/src/main/java/com/krisbunda/gamesmart/productdetails/ProductDetailsViewModel.kt	(date 1605310096052)
+@@ -16,7 +16,7 @@
+     fun fetchProductDetails(productTitle: String) {
+         viewModelScope.launch(Dispatchers.Default) {
+             val json =
+-                URL("https://gist.githubusercontent.com/bunda3d/a0edc1d8e6073b43fc76d195c9a57302/raw/de2290fa084a94c4b367603ee7f00d4e34e84b66/shop_products.json").readText()
++                URL("https://next.json-generator.com/api/json/get/4ylHV_btK").readText()
+             val list = Gson().fromJson(json, Array<Product>::class.java).toList()
+             val product = list.first { it.title == productTitle }
+ 
+Index: app/src/main/java/com/krisbunda/gamesmart/ProductsAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.krisbunda.gamesmart\r\n\r\nimport android.content.Intent\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.ImageView\r\nimport android.widget.TextView\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.krisbunda.gamesmart.model.Product\r\nimport com.squareup.picasso.Picasso\r\n\r\n\r\n//pass Products Adapter from CartActivity\r\nclass ProductsAdapter(\r\n        private val products: List<Product>,\r\n        private val onClickProduct: (\r\n                title: String?,\r\n                descProd: String?,\r\n                photoUrl: String?,\r\n                price: Double?,\r\n                points: Int?,\r\n                photoView: View\r\n        ) -> Unit\r\n        ) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {\r\n\r\n    //bind objects to product row layout\r\n    override fun onBindViewHolder(holder: ViewHolder, position: Int) {\r\n        val product = products[position]\r\n        Picasso.get().load(product.photoUrl).into(holder.image)\r\n        holder.title.text = product.title\r\n        holder.descprod.text = product.descProd\r\n        holder.pricedol.text = product.price.toString()\r\n        holder.pricepts.text = product.points.toString()\r\n\r\n        // when user clicks on product, do this:\r\n        holder.image.setOnClickListener {\r\n            onClickProduct.invoke(\r\n                    product.title,\r\n                    product.descProd,\r\n                    product.photoUrl,\r\n                    product.price,\r\n                    product.points,\r\n                    holder.image\r\n            )\r\n        }\r\n    }\r\n    //get product row layout\r\n    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {\r\n        val view = LayoutInflater.from(parent.context).inflate(R.layout.product_row, parent, false)\r\n        return ViewHolder(view)\r\n    }\r\n    //number of products\r\n    override fun getItemCount() = products.size\r\n\r\n    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){\r\n        val image: ImageView = itemView.findViewById(R.id.photo)\r\n        val title: TextView = itemView.findViewById(R.id.title)\r\n        val descprod: TextView = itemView.findViewById(R.id.description)\r\n        val pricedol: TextView = itemView.findViewById(R.id.price)\r\n        val pricepts: TextView = itemView.findViewById(R.id.points)\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/krisbunda/gamesmart/ProductsAdapter.kt	(revision fadc81134f73774b44244fe2c1698de029c35f6f)
++++ app/src/main/java/com/krisbunda/gamesmart/ProductsAdapter.kt	(date 1605312028963)
+@@ -9,6 +9,7 @@
+ import androidx.recyclerview.widget.RecyclerView
+ import com.krisbunda.gamesmart.model.Product
+ import com.squareup.picasso.Picasso
++import kotlin.math.roundToInt
+ 
+ 
+ //pass Products Adapter from CartActivity
+@@ -27,11 +28,11 @@
+     //bind objects to product row layout
+     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+         val product = products[position]
+-        Picasso.get().load(product.photoUrl).into(holder.image)
+         holder.title.text = product.title
+         holder.descprod.text = product.descProd
+-        holder.pricedol.text = product.price.toString()
+-        holder.pricepts.text = product.points.toString()
++        Picasso.get().load(product.photoUrl).into(holder.image)
++        holder.pricedol.text = "$${product.price?.roundToInt()}"
++        holder.pricepts.text = "${product.points}pts"
+ 
+         // when user clicks on product, do this:
+         holder.image.setOnClickListener {
