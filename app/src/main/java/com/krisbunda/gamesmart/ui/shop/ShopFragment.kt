@@ -82,4 +82,11 @@ class ShopFragment : Fragment() {
             }
         }
     }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+
+        //initiates empty search click to populate recycler view with products
+        btn_search.performClick()
+    }
 }
