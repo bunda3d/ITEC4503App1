@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.room.Room
 import com.krisbunda.gamesmart.cart.CartStatusActivity
 import com.krisbunda.gamesmart.database.AppDatabase
+import com.krisbunda.gamesmart.database.ProductData
 import com.krisbunda.gamesmart.ui.prodcategories.ArtSuppliesFragment
 import com.krisbunda.gamesmart.ui.prodcategories.MakerKitsFragment
 import com.krisbunda.gamesmart.ui.prodcategories.PuzzlesFragment
@@ -30,18 +31,20 @@ class CartActivity : AppCompatActivity() {
         //build database
         doAsync {
 
-            val db: AppDatabase = Room.databaseBuilder(
-                applicationContext,
-                AppDatabase::class.java, "ProductData"
-            ).build()
-            /*
-            db.productDao().insertAll(ProductData(
-                    null,
-                    "Build a NES Kit",
-                    "ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
-                    65.00,
-                    65000
-            ))*/
+
+                val db: AppDatabase = Room.databaseBuilder(
+                    applicationContext,
+                    AppDatabase::class.java, "ProductDataDb"
+                ).build()
+                //uncomment if db is deleted and need to seed starter item
+                    db.productDao().insertAll(ProductData(
+                        null,
+                        "Build a NES Kit",
+                        "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
+                        "ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
+                        65.00,
+                        65000
+                    ))
 
             val products = db.productDao().getAll()
 

@@ -24,7 +24,6 @@ class ProductsAdapter(private val products: List<Product>) : RecyclerView.Adapte
         holder.descprod.text = product.descProd
         holder.pricedol.text = "$${product.price?.roundToInt()}"
         holder.pricepts.text = "${product.points}pts"
-
     }
 
     //get product row layout

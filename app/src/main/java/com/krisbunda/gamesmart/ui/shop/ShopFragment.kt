@@ -54,7 +54,7 @@ class ShopFragment : Fragment() {
 
                 val db = Room.databaseBuilder(
                         activity!!.applicationContext,
-                        AppDatabase::class.java, "ProductData"
+                        AppDatabase::class.java, "ProductDataDb"
                 ).build()
 
                 // val productsFromDB = db.productDao().getAll()

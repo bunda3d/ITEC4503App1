@@ -44,7 +44,7 @@ class ShopAdminFragment : Fragment() {
 
                 val db: AppDatabase = Room.databaseBuilder(
                     activity!!.applicationContext,
-                    AppDatabase::class.java, "ProductData"
+                    AppDatabase::class.java, "ProductDataDb"
                 ).build()
 
 
