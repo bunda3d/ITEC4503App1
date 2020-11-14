@@ -32,6 +32,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/product_image"
+                android:transitionName="photo_to_animate"
                 android:minWidth="100dp"
                 android:minHeight="130dp"
                 android:scaleType="centerCrop"
