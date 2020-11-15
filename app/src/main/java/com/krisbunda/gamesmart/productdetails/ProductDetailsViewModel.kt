@@ -16,7 +16,7 @@ class ProductDetailsViewModel : ViewModel() {
     fun fetchProductDetails(productTitle: String) {
         viewModelScope.launch(Dispatchers.Default) {
             val json =
-                URL("https://gist.githubusercontent.com/bunda3d/a0edc1d8e6073b43fc76d195c9a57302/raw/de2290fa084a94c4b367603ee7f00d4e34e84b66/shop_products.json").readText()
+                URL("https://next.json-generator.com/api/json/get/4ylHV_btK").readText()
             val list = Gson().fromJson(json, Array<Product>::class.java).toList()
             val product = list.first { it.title == productTitle }
 

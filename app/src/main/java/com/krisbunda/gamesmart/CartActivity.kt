@@ -28,23 +28,23 @@ class CartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cart)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+/*
         //build database
         doAsync {
-
 
                 val db: AppDatabase = Room.databaseBuilder(
                     applicationContext,
                     AppDatabase::class.java, "ProductDataDb"
                 ).build()
                 //uncomment if db is deleted and need to seed starter item
-                    db.productDao().insertAll(ProductData(
-                        null,
-                        "Build a NES Kit",
-                        "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
-                        "ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
-                        65.00,
-                        65000
-                    ))
+                db.productDao().insertAll(ProductData(
+                    null,
+                    "Build a NES Kit",
+                    "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
+                    "ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
+                    65.00,
+                    65000
+                ))
 
             val products = db.productDao().getAll()
 
@@ -53,6 +53,7 @@ class CartActivity : AppCompatActivity() {
             }
         }
         //end build database
+*/
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.navcat_host_fragment, ShopFragment()).commit()

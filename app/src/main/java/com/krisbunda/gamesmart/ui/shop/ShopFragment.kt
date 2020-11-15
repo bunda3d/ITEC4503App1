@@ -49,16 +49,13 @@ class ShopFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_search.setOnClickListener {
-
             doAsync {
-
                 val db = Room.databaseBuilder(
                         activity!!.applicationContext,
                         AppDatabase::class.java, "ProductDataDb"
                 ).build()
 
                 // val productsFromDB = db.productDao().getAll()
-
                 val searchTerm = db.productDao().searchFor("%${search_term.text}%")
 
                 val products = searchTerm.map {
@@ -70,12 +67,10 @@ class ShopFragment : Fragment() {
                             it.points
                     )
                 }
-
                 uiThread {
                     recycler_view.apply {
                         layoutManager = LinearLayoutManager(activity)
                         adapter = ProductsAdapter(products)
-
                     }
                     progressBar.visibility = View.GONE
                 }
@@ -85,7 +80,6 @@ class ShopFragment : Fragment() {
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-
         //initiates empty search click to populate recycler view with products
         btn_search.performClick()
     }

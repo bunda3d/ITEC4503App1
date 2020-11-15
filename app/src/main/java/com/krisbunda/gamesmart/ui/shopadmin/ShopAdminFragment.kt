@@ -30,14 +30,13 @@ class ShopAdminFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         btnProdUpdate.setOnClickListener {
             val title = inputProdTitle.text
             val descProd = inputProdDesc.text
             val price = inputProdPrice.text
             val points = inputProdPoints.text
 
-            d("dbtest", "Prod Update btn pressed, with items: $title")
+            d("dbtest", "Prod Update btn pressed, with item: $descProd")
 
             //build db
             doAsync {
@@ -47,13 +46,11 @@ class ShopAdminFragment : Fragment() {
                     AppDatabase::class.java, "ProductDataDb"
                 ).build()
 
-
                 db.productDao().insertAll(ProductData(
                     null,
                     title.toString(),
                     "https://via.placeholder.com/300/BB86FC/FFFFFF/?text=GameSmart",
-                    descProd.toString(),
-                    //"ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
+                    descProd.toString(), //"ipsum in voluptate fugiat irure pariatur mollit non deserunt reprehenderit dolore id officia sit",
                     price.toString().toDoubleOrNull(),
                     points.toString().toInt()
                 ))
@@ -62,8 +59,7 @@ class ShopAdminFragment : Fragment() {
                 uiThread {
                     d("dbtest", "products size? ${products.size} ${products.last().title}")
                 }
-            }
-            //end build database
+            }//end build database
         }
     }
 }
