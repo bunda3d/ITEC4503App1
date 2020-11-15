@@ -55,4 +55,5 @@
     <string name="rubik_s_cube_puzzle">Rubik\'s Cube Puzzle</string>
     <string name="product_image">Product Image</string>
     <string name="desc_rubik">These classic 3x3 puzzle cubes have surged in popularity since the Netflix documentary.</string>
+    <string name="search">Search</string>
 </resources>

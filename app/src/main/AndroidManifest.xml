@@ -14,7 +14,9 @@
         <activity
             android:name=".CartActivity"
             android:label="@string/title_activity_cart"
-            android:theme="@style/Theme.ITEC4503App1.NoActionBar">
+            android:theme="@style/Theme.ITEC4503App1.NoActionBar"
+            android:windowSoftInputMode="stateVisible"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

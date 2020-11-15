@@ -1,13 +1,21 @@
 package com.krisbunda.gamesmart
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.AttributeSet
 import android.util.Log.d
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.room.Room
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.krisbunda.gamesmart.cart.CartStatusActivity
 import com.krisbunda.gamesmart.database.AppDatabase
 import com.krisbunda.gamesmart.database.ProductData
@@ -17,8 +25,11 @@ import com.krisbunda.gamesmart.ui.prodcategories.PuzzlesFragment
 import com.krisbunda.gamesmart.ui.shop.ShopFragment
 import com.krisbunda.gamesmart.ui.shopadmin.ShopAdminFragment
 import kotlinx.android.synthetic.main.activity_cart.*
+import kotlinx.android.synthetic.main.fragment_shop.*
 
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.editText
+import org.jetbrains.anko.inputMethodManager
 import org.jetbrains.anko.uiThread
 
 class CartActivity : AppCompatActivity() {
@@ -102,7 +113,19 @@ class CartActivity : AppCompatActivity() {
 
         }
 
+        val btnFabSearch: FloatingActionButton = findViewById(R.id.btn_fab_search)
+        btnFabSearch.setOnClickListener{
+            search_term.requestFocus()
+            search_term.showKeyboard()
+        }
+
     }
+
+    fun View.showKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+    }
+
 
     //fix this w/better solution later (store hamburger functionality)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -120,6 +143,5 @@ class CartActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true
     }
-
 
 }

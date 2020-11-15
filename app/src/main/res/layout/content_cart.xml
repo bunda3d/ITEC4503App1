@@ -10,7 +10,7 @@
     tools:showIn="@layout/activity_cart"
     >
 
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navcat_host_fragment"
         android:background="@drawable/ic_rect_gradient_blk_purp"
         android:layout_width="0dp"
