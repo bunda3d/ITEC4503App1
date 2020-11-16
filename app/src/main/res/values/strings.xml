@@ -56,4 +56,6 @@
     <string name="product_image">Product Image</string>
     <string name="desc_rubik">These classic 3x3 puzzle cubes have surged in popularity since the Netflix documentary.</string>
     <string name="search">Search</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_test2">TestActivity</string>
 </resources>

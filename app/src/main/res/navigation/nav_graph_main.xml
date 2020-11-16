@@ -3,26 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/nav_graph_main"
     app:startDestination="@+id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
         android:name="com.krisbunda.gamesmart.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.krisbunda.gamesmart.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.krisbunda.gamesmart.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_activity_main_to_activity_cart"
+            app:destination="@id/navcat_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_games"
@@ -31,10 +23,14 @@
         tools:layout="@layout/fragment_games" />
 
     <fragment
-        android:id="@+id/nav_shop"
+        android:id="@+id/navcat_home"
         android:name="com.krisbunda.gamesmart.ui.shop.ShopFragment"
         android:label="@string/menu_shop"
-        tools:layout="@layout/fragment_shop" />
+        tools:layout="@layout/activity_cart">
+        <action
+            android:id="@+id/action_activity_cart_to_activity_main"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_info"
@@ -47,4 +43,22 @@
         android:name="com.krisbunda.gamesmart.ui.account.AccountFragment"
         android:label="@string/menu_account"
         tools:layout="@layout/fragment_account" />
+
+    <include app:graph="@navigation/nav_graph_cart" />
+
 </navigation>
+
+
+<!--
+<fragment
+android:id="@+id/nav_gallery"
+android:name="com.krisbunda.gamesmart.ui.gallery.GalleryFragment"
+android:label="@string/menu_gallery"
+tools:layout="@layout/fragment_gallery" />
+
+<fragment
+android:id="@+id/nav_slideshow"
+android:name="com.krisbunda.gamesmart.ui.slideshow.SlideshowFragment"
+android:label="@string/menu_slideshow"
+tools:layout="@layout/fragment_slideshow" />
+-->

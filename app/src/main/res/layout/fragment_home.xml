@@ -9,7 +9,6 @@
     android:saveEnabled="false"
     tools:context=".ui.home.HomeFragment">
 
-
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,8 +19,6 @@
         app:cardBackgroundColor="?attr/colorPrimary"
         app:cardCornerRadius="5dp"
         style="@style/Widget.MaterialComponents.CardView">
-
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -38,8 +35,6 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/_img_maker_kit"
                 android:layout_marginRight="8dp"/>
-
-
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/card_cta_heading"
@@ -71,13 +66,12 @@
                 android:layout_below="@+id/card_home_cta_desc"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/go_to_store"
                 android:textColor="@color/secondaryColor"
                 >
             </Button>
-
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>
