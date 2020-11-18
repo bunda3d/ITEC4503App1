@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
+import com.krisbunda.gamesmart.CartActivity
+import com.krisbunda.gamesmart.MainActivity
 import com.krisbunda.gamesmart.ProductsAdapter
 import com.krisbunda.gamesmart.R
 import com.krisbunda.gamesmart.database.AppDatabase
@@ -83,4 +85,5 @@ class ShopFragment : Fragment() {
         //initiates empty search click to populate recycler view with products
         btn_search.performClick()
     }
+
 }

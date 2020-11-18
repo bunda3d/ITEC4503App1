@@ -15,13 +15,12 @@
             android:name=".CartActivity"
             android:label="@string/title_activity_cart"
             android:theme="@style/Theme.ITEC4503App1.NoActionBar"
-            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="stateVisible"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.SECONDARY_HOME" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

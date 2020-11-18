@@ -4,24 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_cart"
-    app:startDestination="@id/navcat_home">
+    app:startDestination="@layout/activity_cart">
 
     <fragment
         android:id="@+id/navcat_home"
-        android:name="com.krisbunda.gamesmart.ui.shop.ShopFragment"
+        android:name="com.krisbunda.gamesmart.CartActivity"
         android:label="@string/menu_shop"
-        tools:layout="@layout/fragment_shop">
-        <action
-            android:id="@+id/action_activity_cart_to_activity_main"
-            app:destination="@id/nav_home" />
+        tools:layout="@layout/activity_cart">
     </fragment>
+
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.krisbunda.gamesmart.ui.home.HomeFragment"
+        android:name="com.krisbunda.gamesmart.MainActivity"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_activity_main_to_activity_cart"
-            app:destination="@id/navcat_home" />
+        tools:layout="@layout/activity_main">
     </fragment>
 </navigation>

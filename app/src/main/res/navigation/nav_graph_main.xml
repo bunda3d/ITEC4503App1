@@ -11,9 +11,9 @@
         android:name="com.krisbunda.gamesmart.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
-        <action
+<!--        <action
             android:id="@+id/action_activity_main_to_activity_cart"
-            app:destination="@id/navcat_home" />
+            app:destination="@layout/activity_cart" />-->
     </fragment>
 
     <fragment
@@ -27,9 +27,9 @@
         android:name="com.krisbunda.gamesmart.ui.shop.ShopFragment"
         android:label="@string/menu_shop"
         tools:layout="@layout/activity_cart">
-        <action
+<!--        <action
             android:id="@+id/action_activity_cart_to_activity_main"
-            app:destination="@id/nav_home" />
+            app:destination="@layout/activity_main" />-->
     </fragment>
 
     <fragment
@@ -44,7 +44,9 @@
         android:label="@string/menu_account"
         tools:layout="@layout/fragment_account" />
 
+<!--
     <include app:graph="@navigation/nav_graph_cart" />
+-->
 
 </navigation>
 
