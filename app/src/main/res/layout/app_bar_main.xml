@@ -30,16 +30,5 @@
 
         <include layout="@layout/content_main" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="80dp"
-            android:contentDescription="@string/button_email"
-            app:srcCompat="@android:drawable/ic_dialog_email"
-            android:layout_marginEnd="64dp"
-            android:layout_marginRight="@dimen/fab_margin" />
-
-    </LinearLayout>
+     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

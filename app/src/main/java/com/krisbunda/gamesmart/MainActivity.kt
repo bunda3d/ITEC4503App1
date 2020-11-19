@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             .setupWithNavController(navController)
 
 
-/*        val intent = Intent(this@MainActivity, CartActivity::class.java)
+        /*val intent = Intent(this@MainActivity, CartActivity::class.java)
         val startAct = startActivity(intent)
         val pendingIntent = NavDeepLinkBuilder(this@MainActivity)
                 .setGraph(R.navigation.nav_graph_main)
@@ -97,8 +97,4 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
-}
-
-private fun Any.setNavigationItemSelectedListener(function: () -> () -> Unit): Int {
-
 }
